@@ -27,7 +27,6 @@
 /// THE SOFTWARE.
 
 import UIKit
-import SwiftUI
 
 class ViewController: UIViewController {
   @IBOutlet weak var slider: UISlider!
@@ -41,12 +40,7 @@ class ViewController: UIViewController {
     targetLabel.text = String(targetValue)
   }
   
-    @IBSegueAction func openRGBullsEye(_ coder: NSCoder) -> UIViewController? {
-        UIHostingController(coder: coder, rootView:
-          ContentView(rGuess: 0.5, gGuess: 0.5, bGuess: 0.5))
-    }
-    
-    @IBAction func showAlert() {
+  @IBAction func showAlert() {
     let difference = abs(targetValue - currentValue)
     let points = 100 - difference
     
