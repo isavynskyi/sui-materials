@@ -27,6 +27,7 @@
 /// THE SOFTWARE.
 
 import UIKit
+import SwiftUI
 
 class ViewController: UIViewController {
   @IBOutlet weak var slider: UISlider!
@@ -39,6 +40,11 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     targetLabel.text = String(targetValue)
   }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        parent?.navigationItem.title = "BullsEye"
+    }
   
   @IBAction func showAlert() {
     let difference = abs(targetValue - currentValue)
@@ -61,3 +67,22 @@ class ViewController: UIViewController {
   
 }
 
+
+struct ViewControllerRepresentation: UIViewControllerRepresentable {
+    
+    func makeUIViewController(context: UIViewControllerRepresentableContext <ViewControllerRepresentation>) -> ViewController {
+        UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
+    }
+    
+    func updateUIViewController(_ uiViewController: ViewController,
+                                context: UIViewControllerRepresentableContext<ViewControllerRepresentation>) {
+        
+    }
+}
+
+
+struct ViewControllerPreviews: PreviewProvider {
+    static var previews: some View {
+        ViewControllerRepresentation()
+    }
+}
