@@ -33,37 +33,39 @@
 import SwiftUI
 
 struct ContentView: View {
-  let targetValue = Int.random(in: 1...100)
-  @State var currentValue = 50.0
-  @State var showAlert = false
-
-  func computeScore() -> Int {
-    let difference = abs(targetValue - Int(currentValue))
-    return 100 - difference
-  }
-
-  var body: some View {
-    VStack {
-      Text("Put the Bull's Eye as close as you can to: \(targetValue)")
-      HStack {
-        Text("0")
-        Slider(value: $currentValue, in: 1.0...100.0, step: 1.0)
-          .background(Color.blue)
-          .opacity(1.0 - Double(computeScore())/100.0)
-        Text("100")
-      }.padding(.horizontal)
-      Button(action: { self.showAlert = true }) {
-        Text("Hit Me!")
-      }.alert(isPresented: $showAlert) {
-        Alert(title: Text("Your Score"), message: Text(String(computeScore())))
-      }.padding()
+    let targetValue = Int.random(in: 1...100)
+    @State var currentValue: Float = 50.0
+    
+    @State var showAlert = false
+    
+    func computeScore() -> Int {
+        let difference = abs(targetValue - Int(currentValue))
+        return 100 - difference
     }
-  }
+    
+    var body: some View {
+        VStack {
+            Text("Put the Bull's Eye as close as you can to: \(targetValue)")
+            HStack {
+                Text("0")
+                SliderView(value: $currentValue, alpha: .constant(1.0 - Float(computeScore())/100.0))
+//                Slider(value: $currentValue, in: 1.0...100.0, step: 1.0)
+//                    .background(Color.blue)
+//                    .opacity(1.0 - Double(computeScore())/100.0)
+                Text("100")
+            }.padding(.horizontal)
+            Button(action: {self.showAlert = true }) {
+                Text("Hit Me!")
+            }.alert(isPresented: $showAlert) {
+                Alert(title: Text("Your Score"), message: Text(String(computeScore())))
+            }.padding()
+        }
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    ContentView()
-      .previewLayout(.fixed(width: 568, height: 320))
-  }
+    static var previews: some View {
+        ContentView()
+            .previewLayout(.fixed(width: 568, height: 320))
+    }
 }

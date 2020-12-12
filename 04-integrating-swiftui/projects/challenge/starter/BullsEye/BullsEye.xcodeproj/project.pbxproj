@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17720EE925850E04006DB8DE /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17720EE825850E04006DB8DE /* SliderView.swift */; };
 		40C5C9CE22E446DA003E3FCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C5C9CD22E446DA003E3FCB /* AppDelegate.swift */; };
 		40C5C9D022E446DA003E3FCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C5C9CF22E446DA003E3FCB /* SceneDelegate.swift */; };
 		40C5C9D222E446DA003E3FCB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C5C9D122E446DA003E3FCB /* ContentView.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17720EE825850E04006DB8DE /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		40C5C9CA22E446DA003E3FCB /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C5C9CD22E446DA003E3FCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40C5C9CF22E446DA003E3FCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				40C5C9CD22E446DA003E3FCB /* AppDelegate.swift */,
 				40C5C9CF22E446DA003E3FCB /* SceneDelegate.swift */,
 				40C5C9D122E446DA003E3FCB /* ContentView.swift */,
+				17720EE825850E04006DB8DE /* SliderView.swift */,
 				40C5C9D322E446DC003E3FCB /* Assets.xcassets */,
 				40C5C9D822E446DC003E3FCB /* LaunchScreen.storyboard */,
 				40C5C9DB22E446DC003E3FCB /* Info.plist */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40C5C9CE22E446DA003E3FCB /* AppDelegate.swift in Sources */,
+				17720EE925850E04006DB8DE /* SliderView.swift in Sources */,
 				40C5C9D022E446DA003E3FCB /* SceneDelegate.swift in Sources */,
 				40C5C9D222E446DA003E3FCB /* ContentView.swift in Sources */,
 			);
