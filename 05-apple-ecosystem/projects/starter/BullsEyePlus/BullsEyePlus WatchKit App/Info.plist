@@ -26,7 +26,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.raywenderlich.BullsEyePlus</string>
+	<string>com.ihorsavynskyi.BullsEyePlus</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>

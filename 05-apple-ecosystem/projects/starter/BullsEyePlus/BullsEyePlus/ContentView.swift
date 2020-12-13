@@ -36,6 +36,7 @@ import Game
 public struct ContentView: View {
     @ObservedObject private var game = BullsEyeGame()
     
+    @EnvironmentObject var defaults: UserDefaults
     @State private var currentValue = 50.0
     @State private var showAlert = false
     
@@ -50,9 +51,13 @@ public struct ContentView: View {
             Text("Put the Bull's Eye as close as you can to: \(game.targetValue)")
             HStack {
                 Text("0")
-                Slider(value: $currentValue, in: 1.0...100.0, step: 1.0)
-                    .background(Color.blue)
-                    .opacity(alpha)
+                if defaults.bool(forKey: "show_hint") {
+                    Slider(value: $currentValue, in: 0.0...100.0, step: 1.0)
+                        .background(Color.blue)
+                        .opacity(abs((Double(self.game.targetValue) - self.currentValue)/100.0))
+                } else {
+                    Slider(value: $currentValue, in: 0.0...100.0, step: 1.0)
+                }
                 Text("100")
             }
             .padding(.horizontal)

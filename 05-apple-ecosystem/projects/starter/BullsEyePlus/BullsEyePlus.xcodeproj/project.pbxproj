@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		175AFCF02586561A00432D37 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 175AFCEF2586561A00432D37 /* Settings.bundle */; };
 		17720EF9258524CF006DB8DE /* Game in Frameworks */ = {isa = PBXBuildFile; productRef = 17720EF8258524CF006DB8DE /* Game */; };
 		17720EFB25852515006DB8DE /* Game in Frameworks */ = {isa = PBXBuildFile; productRef = 17720EFA25852515006DB8DE /* Game */; };
 		17720F03258538C7006DB8DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17720F02258538C7006DB8DE /* ContentView.swift */; };
@@ -15,7 +16,7 @@
 		CDC75D5D2306557E008B12CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC75D5C2306557E008B12CC /* Assets.xcassets */; };
 		CDC75D602306557E008B12CC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC75D5F2306557E008B12CC /* Preview Assets.xcassets */; };
 		CDC75D632306557E008B12CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC75D612306557E008B12CC /* LaunchScreen.storyboard */; };
-		CDC75D682306557F008B12CC /* BullsEyePlus WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CDC75D672306557F008B12CC /* BullsEyePlus WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CDC75D682306557F008B12CC /* BullsEyePlus WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CDC75D672306557F008B12CC /* BullsEyePlus WatchKit App.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CDC75D6E2306557F008B12CC /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC75D6C2306557F008B12CC /* Interface.storyboard */; };
 		CDC75D7023065581008B12CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC75D6F23065581008B12CC /* Assets.xcassets */; };
 		CDC75D7723065582008B12CC /* BullsEyePlus WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CDC75D7623065582008B12CC /* BullsEyePlus WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -69,6 +70,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		175AFCEB2586508200432D37 /* BullsEyePlus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BullsEyePlus.entitlements; sourceTree = "<group>"; };
+		175AFCEF2586561A00432D37 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		17720EF025852332006DB8DE /* Game */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Game; path = ../../../packages/Game; sourceTree = "<group>"; };
 		17720F02258538C7006DB8DE /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CDC75D532306557C008B12CC /* BullsEyePlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEyePlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +145,7 @@
 		CDC75D552306557C008B12CC /* BullsEyePlus */ = {
 			isa = PBXGroup;
 			children = (
+				175AFCEB2586508200432D37 /* BullsEyePlus.entitlements */,
 				17720EF025852332006DB8DE /* Game */,
 				CDC75D562306557C008B12CC /* AppDelegate.swift */,
 				CDC75D582306557C008B12CC /* SceneDelegate.swift */,
@@ -150,6 +154,7 @@
 				CDC75D612306557E008B12CC /* LaunchScreen.storyboard */,
 				CDC75D642306557F008B12CC /* Info.plist */,
 				CDC75D5E2306557E008B12CC /* Preview Content */,
+				175AFCEF2586561A00432D37 /* Settings.bundle */,
 			);
 			path = BullsEyePlus;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				175AFCF02586561A00432D37 /* Settings.bundle in Resources */,
 				CDC75D632306557E008B12CC /* LaunchScreen.storyboard in Resources */,
 				CDC75D602306557E008B12CC /* Preview Assets.xcassets in Resources */,
 				CDC75D5D2306557E008B12CC /* Assets.xcassets in Resources */,
@@ -353,6 +359,7 @@
 /* Begin PBXTargetDependency section */
 		CDC75D6A2306557F008B12CC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = CDC75D662306557F008B12CC /* BullsEyePlus WatchKit App */;
 			targetProxy = CDC75D692306557F008B12CC /* PBXContainerItemProxy */;
 		};
@@ -511,7 +518,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.BullsEyePlus.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ihorsavynskyi.BullsEyePlus.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -535,7 +542,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.BullsEyePlus.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ihorsavynskyi.BullsEyePlus.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -554,7 +561,7 @@
 				DEVELOPMENT_TEAM = "";
 				IBSC_MODULE = BullsEyePlus_WatchKit_Extension;
 				INFOPLIST_FILE = "BullsEyePlus WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.BullsEyePlus.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ihorsavynskyi.BullsEyePlus.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -573,7 +580,7 @@
 				DEVELOPMENT_TEAM = "";
 				IBSC_MODULE = BullsEyePlus_WatchKit_Extension;
 				INFOPLIST_FILE = "BullsEyePlus WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.BullsEyePlus.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ihorsavynskyi.BullsEyePlus.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -587,17 +594,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BullsEyePlus/BullsEyePlus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "BullsEyePlus/Preview\\ Content";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8MM4UC4S28;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = BullsEyePlus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.BullsEyePlus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ihorsavynskyi.BullsEyePlus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -607,17 +616,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BullsEyePlus/BullsEyePlus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "BullsEyePlus/Preview\\ Content";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8MM4UC4S28;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = BullsEyePlus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.BullsEyePlus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ihorsavynskyi.BullsEyePlus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
