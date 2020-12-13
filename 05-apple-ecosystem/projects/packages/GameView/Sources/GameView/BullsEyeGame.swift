@@ -21,7 +21,7 @@
 /// This project and source code may use libraries or frameworks that are
 /// released under various Open-Source licenses. Use of those libraries and
 /// frameworks are governed by their own individual licenses.
-/// 
+///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -30,57 +30,35 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import SwiftUI
-import Game
+import Foundation
 
-public struct ContentView: View {
-    @ObservedObject private var game = BullsEyeGame()
+public class BullsEyeGame: ObservableObject {
+    public var round = 0
+    public var startValue = 50
+    public var targetValue = 50
+    public var scoreRound = 0
+    public var scoreTotal = 0
     
-    @State private var currentValue = 50.0
-    @State private var showAlert = false
-    
-    private var alpha: Double {
-        abs(Double(game.targetValue) - currentValue) / 100.0
+    public init() {
+        startNewGame()
     }
     
-    public init() { }
+    public func startNewGame() {
+        round = 0
+        scoreTotal = 0
+        startNewRound()
+    }
     
-    public var body: some View {
-        VStack {
-            Text("Put the Bull's Eye as close as you can to: \(game.targetValue)")
-            HStack {
-                Text("0")
-                Slider(value: $currentValue, in: 1.0...100.0, step: 1.0)
-                    .background(Color.blue)
-                    .opacity(alpha)
-                Text("100")
-            }
-            .padding(.horizontal)
-            Button(action: {
-                self.showAlert = true
-                self.game.checkGuess(Int(self.currentValue))
-            }) {
-                Text("Hit Me!")
-            }
-            .alert(isPresented: $showAlert) {
-                Alert(title: Text("Your Score"), message: Text(String(game.scoreRound)),
-                      dismissButton: .default(Text("OK"), action: {
-                        self.game.startNewRound()
-                        self.currentValue = 50.0
-                      }))
-            }
-            .padding()
-            HStack {
-                Text("Total Score: \(game.scoreTotal)")
-                Text("Round: \(game.round)")
-            }
-        }
+    public func startNewRound() {
+        round += 1
+        scoreRound = 0
+        startValue = 50
+        targetValue = Int.random(in: 1...100)
+    }
+    
+    public func checkGuess(_ guess: Int) {
+        let difference = abs(targetValue - guess)
+        scoreRound = 100 - difference
+        scoreTotal = scoreTotal + scoreRound
     }
 }
-
-struct ContentView_Previews : PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-

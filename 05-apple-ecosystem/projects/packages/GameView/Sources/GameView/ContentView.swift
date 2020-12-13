@@ -31,7 +31,6 @@
 /// THE SOFTWARE.
 
 import SwiftUI
-import Game
 
 public struct ContentView: View {
     @ObservedObject private var game = BullsEyeGame()
