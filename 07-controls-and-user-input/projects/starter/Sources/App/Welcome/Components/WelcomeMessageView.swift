@@ -32,17 +32,28 @@
 
 import SwiftUI
 
-struct WelcomeView: View {
+struct WelcomeMessageView: View {
     var body: some View {
-        ZStack {
-            WelcomeBackgroundImage()
-            WelcomeMessageView()
+        HStack {
+            LogoImage()
+            VStack {
+                Text("Welcome to")
+                    .font(.headline)
+                    .bold()
+                Text("Kuchi")
+                    .font(.largeTitle)
+                    .bold()
+            }
+            .foregroundColor(.red)
+            .lineLimit(2)
+            .multilineTextAlignment(.leading)
+            .padding(.horizontal)
         }
     }
 }
 
-struct WelcomeView_Previews: PreviewProvider {
+struct WelcomeMessageView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView()
+        WelcomeMessageView()
     }
 }
