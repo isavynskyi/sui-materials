@@ -35,13 +35,36 @@ import SwiftUI
 struct RegisterView: View {
     @EnvironmentObject var userManager: UserManager
     @ObservedObject var keyboardHandler: KeyboardFollower
+    @State var color: Color = .red
     
     var body: some View {
         VStack {
             Spacer()
             WelcomeMessageView()
+            
             TextField("Type your name...", text: $userManager.profile.name)
                 .bordered()
+            
+            HStack {
+                Spacer()
+                Text("\(userManager.profile.name.count)")
+                    .font(.caption)
+                    .foregroundColor(
+                        userManager.isUserNameValid() ? .green : .red)
+                    .padding(.trailing)
+            }
+            // 4
+            .padding(.bottom)
+            
+            HStack {
+                Spacer()
+                Toggle(isOn: $userManager.settings.rememberUser) {
+                    Text("Remember me")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                }
+                .fixedSize()
+            }
             
             Button.init(action: self.registerUser) {
                 HStack {
@@ -55,7 +78,6 @@ struct RegisterView: View {
             }
             .bordered()
             .disabled(!userManager.isUserNameValid())
-            
             Spacer()
         }
         .padding(.bottom, keyboardHandler.keyboardHeight)
@@ -67,13 +89,20 @@ struct RegisterView: View {
 
 extension RegisterView {
     func registerUser() {
-        userManager.persistProfile()
+        if userManager.settings.rememberUser {
+            userManager.persistProfile()
+        } else {
+            userManager.clear()
+        }
+        
+        userManager.persistSettings()
+        userManager.setRegistered()
     }
 }
 
 struct RegisterView_Previews: PreviewProvider {
     static let user = UserManager(name: "Ray")
-
+    
     static var previews: some View {
         RegisterView(keyboardHandler: KeyboardFollower())
             .environmentObject(user)
