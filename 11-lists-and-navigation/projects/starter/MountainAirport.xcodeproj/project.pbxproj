@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1740404825A7635B00A8232C /* FlightRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1740404725A7635B00A8232C /* FlightRow.swift */; };
+		1740404C25A7679400A8232C /* FlightBoardInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1740404B25A7679400A8232C /* FlightBoardInformation.swift */; };
 		18D775C122AD944300AE281E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D775C022AD944300AE281E /* AppDelegate.swift */; };
 		18D775C322AD944300AE281E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D775C222AD944300AE281E /* SceneDelegate.swift */; };
 		18D775C522AD944300AE281E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D775C422AD944300AE281E /* ContentView.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1740404725A7635B00A8232C /* FlightRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightRow.swift; sourceTree = "<group>"; };
+		1740404B25A7679400A8232C /* FlightBoardInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightBoardInformation.swift; sourceTree = "<group>"; };
 		18D775BD22AD944300AE281E /* MountainAirport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MountainAirport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D775C022AD944300AE281E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18D775C222AD944300AE281E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,8 +74,10 @@
 				18D775C022AD944300AE281E /* AppDelegate.swift */,
 				18D775C222AD944300AE281E /* SceneDelegate.swift */,
 				18D775C422AD944300AE281E /* ContentView.swift */,
-				A9C399CE2322C0C400E77AFE /* FlightTimeHistory.swift */,
 				E6C531522327123600BA40DF /* FlightBoard.swift */,
+				1740404B25A7679400A8232C /* FlightBoardInformation.swift */,
+				A9C399CE2322C0C400E77AFE /* FlightTimeHistory.swift */,
+				1740404725A7635B00A8232C /* FlightRow.swift */,
 				18D775C622AD944400AE281E /* Assets.xcassets */,
 				18D775DA22AD963800AE281E /* LaunchScreen.storyboard */,
 				18D775CE22AD944400AE281E /* Info.plist */,
@@ -168,9 +174,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1740404825A7635B00A8232C /* FlightRow.swift in Sources */,
 				A9CF015F22FA4BF9009B3CC0 /* FlightHistory.swift in Sources */,
 				18D775C122AD944300AE281E /* AppDelegate.swift in Sources */,
 				18D775C322AD944300AE281E /* SceneDelegate.swift in Sources */,
+				1740404C25A7679400A8232C /* FlightBoardInformation.swift in Sources */,
 				A9C399CF2322C0C400E77AFE /* FlightTimeHistory.swift in Sources */,
 				E6C531532327123600BA40DF /* FlightBoard.swift in Sources */,
 				E6EC6D4722D6AE0A006EC6C2 /* FlightInformation.swift in Sources */,

@@ -42,11 +42,11 @@ struct ContentView: View {
           .frame(width: 250, height: 250, alignment: .center)
         VStack(alignment: .leading, spacing: 5) {
           NavigationLink(destination: FlightBoard(
-                          boardName: "Arrivals")) {
+                          boardName: "Arrivals", flightData: flightInfo.arrivals())) {
             Text("Arrivals")
           }
           NavigationLink(destination: FlightBoard(
-                          boardName: "Departures")) {
+                          boardName: "Departures", flightData: flightInfo.departures())) {
             Text("Departures")
           }
           Spacer()

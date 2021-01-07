@@ -1,4 +1,4 @@
-/// Copyright (c) 2019 Razeware LLC
+/// Copyright (c) 2021 Razeware LLC
 /// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -28,38 +28,29 @@
 
 import SwiftUI
 
-struct FlightBoard: View {
-    var boardName: String
-    var flightData: [FlightInformation]
-    
-    @State private var hideCancelled = false
-    
-    var shownFlights: [FlightInformation] {
-        hideCancelled ?
-            flightData.filter { $0.status != .cancelled } : flightData
-    }
+struct FlightBoardInformation: View {
+    var flight: FlightInformation
     
     var body: some View {
-        VStack {
-            List(shownFlights) { flight in
-                NavigationLink(destination: FlightBoardInformation(flight: flight)) {
-                    FlightRow(flight: flight)
-                }
+        VStack(alignment: .leading) {
+            HStack{
+                Text("\(flight.airline) Flight \(flight.number)")
+                    .font(.largeTitle)
+                Spacer()
             }
-            .navigationBarTitle(boardName)
-            .navigationBarItems(trailing:
-                                    Toggle(isOn: $hideCancelled, label: {
-                                        Text("Hide Cancelled")
-                                    })
-            )
+            Text("\(flight.direction == .arrival ? "From: " : "To: ")" +
+                    "\(flight.otherAirport)")
+            Text(flight.flightStatus)
+                .foregroundColor(Color(flight.timelineColor))
+            Spacer()
         }
+        .font(.headline)
+        .padding(10)
     }
 }
 
-struct FlightBoard_Previews: PreviewProvider {
+struct FlightBoardInformation_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            FlightBoard(boardName: "Test", flightData: FlightInformation.generateFlights())
-        }
+        FlightBoardInformation(flight: FlightInformation.generateFlight(0))
     }
 }
