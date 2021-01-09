@@ -43,9 +43,7 @@ struct FlightBoard: View {
   var body: some View {
     VStack {
       List(shownFlights) { flight in
-        NavigationLink(destination: FlightBoardInformation(flight: flight)) {
           FlightRow(flight: flight)
-        }
       }
       .navigationBarTitle(boardName)
       .navigationBarItems(trailing:
