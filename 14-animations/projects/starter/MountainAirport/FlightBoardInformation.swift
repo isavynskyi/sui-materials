@@ -36,6 +36,11 @@
   
   struct FlightBoardInformation: View {
     var flight: FlightInformation
+    
+    var flightDetailAnimation : Animation {
+      Animation.easeInOut
+    }
+    
     @Binding var showModal: Bool
     @State private var showDetails = false
     
@@ -46,39 +51,62 @@
             .font(.largeTitle)
           Spacer()
           Button("Done", action: {
-            self.showModal = false })
+                  self.showModal = false })
         }
         Text("\(flight.direction == .arrival ? "From: " : "To: ") \(flight.otherAirport)")
         Text(flight.flightStatus)
           .foregroundColor(Color(flight.timelineColor))
         FlightConditionals(flight: self.flight)
         Button(action: {
-          self.showDetails.toggle()
+          withAnimation {
+            self.showDetails.toggle()
+          }
         }) {
           HStack {
             if showDetails {
               Text("Hide Details")
-              Spacer()
-              Image(systemName: "chevron.up.square")
+                .transition(.buttonTextTransition)
             } else {
               Text("Show Details")
-              Spacer()
-              Image(systemName: "chevron.down.square")
+                .transition(.buttonTextTransition)
             }
+            Spacer()
+            Image(systemName: "chevron.up.square")
+              .scaleEffect(showDetails ? 2 : 1)
+              .rotationEffect(.degrees(showDetails ? 0 : 180))
+              .animation(flightDetailAnimation)
           }
         }
+        
         if showDetails {
           FlightDetails(flight: flight)
+            .transition(.flightDetailsTransition)
         }
+        
         Spacer()
       }.font(.headline).padding(10)
+    }
+  }
+  
+  extension AnyTransition {
+    static var flightDetailsTransition: AnyTransition {
+      let insertion = AnyTransition.move(edge: .leading)
+      let removal = AnyTransition.move(edge: .bottom)
+        .combined(with: .opacity)
+      return .asymmetric(insertion: insertion, removal: removal)
+    }
+    
+    static var buttonTextTransition: AnyTransition {
+      let insertion = AnyTransition.move(edge: .leading)
+      let removal = AnyTransition.scale
+      return .asymmetric(insertion: insertion, removal: removal)
     }
   }
   
   struct FlightBoardInformation_Previews: PreviewProvider {
     static var previews: some View {
       FlightBoardInformation(flight:
-        FlightInformation.generateFlight(0),
+                              FlightInformation.generateFlight(0),
                              showModal: .constant(true))
     }
   }
