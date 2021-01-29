@@ -64,22 +64,18 @@ struct AirportAwards: View {
   }
   
   var activeAwards: [AwardInformation] {
-      awardArray.filter { $0.awarded }
+    awardArray.filter { $0.awarded }
   }
   
   var body: some View {
     VStack {
       Text("Your Awards (\(activeAwards.count))")
         .font(.title)
-      ScrollView {
+      GridView(columns: 2, items: activeAwards) { item in
         VStack {
-          ForEach(activeAwards, id:\.self) { award in
-            VStack {
-              award.awardView
-              Text(award.title)
-            }.frame(width: 200, height: 200)
-          }
-        }
+          item.awardView
+          Text(item.title)
+        }.padding(5)
       }
     }
   }
